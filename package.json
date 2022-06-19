@@ -1,0 +1,26 @@
+{
+  "name": "file-streamer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eugeny-dementev/file-streamer.git"
+  },
+  "keywords": [
+    "stream",
+    "streams",
+    "files",
+    "http",
+    "aggregation"
+  ],
+  "author": "Eugeny Dementev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eugeny-dementev/file-streamer/issues"
+  },
+  "homepage": "https://github.com/eugeny-dementev/file-streamer#readme"
+}
