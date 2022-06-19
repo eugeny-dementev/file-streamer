@@ -3,7 +3,14 @@ const through = require('through');
 const http = require('node:http');
 
 const server = http.createServer((req, res) => {
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+        'Access-Control-Max-Age': 2592000, // 30 days
+    };
+
     try {
+        res.writeHead(200, headers);
         vfs
             .src('./test-files/*')
             .pipe(through(
