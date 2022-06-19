@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
             .src('./test-files/*')
             .pipe(through(
                 function write(data) {
-                   res.write(data.contents);
+                  res.write(data.contents);
                     console.log(data.contents.toString());
                 },
                 function end() {
