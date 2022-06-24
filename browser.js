@@ -2,22 +2,34 @@ class Aggregator {
   constructor(splitter) {
     this.splitter = splitter;
     this.valuesSum = {};
+    this.tail = '';
   }
 
   parse(text) {
-    return text
-      .split('\r\n')
-      .map(line => {
+    const string = this.tail + text;
+    const lines = string.split('\r\n');
+    const lastLine = lines.pop();
+    const lastLineElements = lastLine.split(this.splitter);
+
+    if (lastLineElements.length !== 5) {
+      this.tail = lastLine;
+      console.log('lastLine:', this.tail);
+    } else {
+      this.tail = '';
+      lines.push(lastLine);
+    }
+
+
+
+    return lines.map(line => {
+        // console.log('line');
         const data = line.split(this.splitter);
         const [id1, id2, id3, value1, value2] = data;
-        const dataChunk = {
+        return {
           id1, id2, id3,
           value1: Number(value1),
           value2: Number(value2),
-        }
-
-
-        return dataChunk;
+        };
       });
   }
 
